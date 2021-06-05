@@ -1,4 +1,4 @@
-#IndieGo
+# IndieGo
 
 This is an extremly simple 2D  imitation of pokemon game. It has the following features: 
 
