@@ -1,0 +1,27 @@
+﻿<Page x:Class="IndieGo.Pages.GymBattle"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IndieGo.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1158"
+      Title="GymBattle">
+
+    <Canvas>
+        <Image Width="1158" Height="720" Source="pack://application:,,,/Assets/battlebackground.jpg"></Image>
+
+        <Button  Name="back" Content="back to main" Width="165" Canvas.Left="983" Canvas.Top="22" Height="24" Click="back_Click"/>
+        <TextBlock Background="White" Opacity="0.5" TextWrapping="Wrap" Height="119" Width="386" Canvas.Left="417" Canvas.Top="101" Text="{Binding Path=Message}"></TextBlock>
+        <Button Content="{Binding Path=SelectedItem.Attack2, Mode=OneWay , ElementName=pokemonSelector}" Width="124" Height="37" Canvas.Left="197" Canvas.Top="549" Click="Button_Click_2"/>
+        <Button Content="{Binding Path=SelectedItem.Attack1, Mode=OneWay , ElementName=pokemonSelector}" Width="127" Height="37" Canvas.Left="41" Canvas.Top="549" Click="Button_Click_1"/>
+        <ComboBox Name="pokemonSelector"  Width="120" Canvas.Left="146" Canvas.Top="241" IsEditable="True" IsReadOnly="True" Text="Select Pokemon" />
+        <Image Height="218" Width="229" Source="{Binding Path=SelectedItem.ImagePath, Mode=OneWay , ElementName=pokemonSelector}" Canvas.Left="79" Canvas.Top="310"></Image>
+        <TextBlock TextWrapping="Wrap" Text="{Binding Path=SelectedItem.HP, Mode=OneWay,NotifyOnSourceUpdated =True, ElementName=pokemonSelector, StringFormat= HP: {0}}"  FontSize="22" Canvas.Left="121" Canvas.Top="278" Height="32" Width="102"/>
+        <Button Content="Confirm" Width="83" Canvas.Left="266" Canvas.Top="242" Height="21" Click="Button_Click"/>
+        <Image Height="174" Width="188" Source="{Binding Path=GymHero.ImagePath, Mode=OneWay}" Canvas.Left="898" Canvas.Top="367"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding Path=GymHero.HP, Mode=OneWay, StringFormat=HP: {0}}"  FontSize="22" Canvas.Left="955" Canvas.Top="563" Height="34" Width="131"/>
+        <ComboBox x:Name="potionSelector"  Width="120" Canvas.Left="26" Canvas.Top="241" IsEditable="True" IsReadOnly="True" Text="Select Potion" />
+        <Image Height="100" Width="100" Canvas.Left="350" Canvas.Top="428" Source="{Binding Path=SelectedItem.ImagePath, Mode=OneWay , ElementName=potionSelector}" />
+    </Canvas>
+</Page>
